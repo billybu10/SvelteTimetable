@@ -41,10 +41,8 @@
             };
     }
 
-    const deleteLesson = () => {
-        lessons = lessons => {
-            lessons.filter((element) => element.id !== id)
-        };
+    const deleteLesson = (id) => {
+        lessons = lessons.filter((element) => element.id != id);
         localStorage.setItem("Lessons", JSON.stringify(lessons))
     }
 
@@ -64,7 +62,7 @@
     }
 
     const editLesson = (id) => {
-        edittedLesson = lessons.find(element => element.id === id)
+        edittedLesson = {...lessons.find(element => element.id === id)};
     }
 
 </script>
@@ -72,7 +70,7 @@
 <div>
     {#each weekdays as weekday}
         {#if lessons.filter(x => x.day === weekday.number).length > 0}
-            <DayTable time={time} dayName={weekday.name} lessons={lessons.filter(x => x.day === weekday.number)}/>
+            <DayTable time={time} day={weekday} lessons={lessons.filter(x => x.day === weekday.number)} editLesson={editLesson} deleteLesson={deleteLesson}/>
         {/if}
         
     {/each}

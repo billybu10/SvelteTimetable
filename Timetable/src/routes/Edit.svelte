@@ -22,7 +22,6 @@
         onchange={(e) => props.onInputChange({[e.target.name]: e.target.value})}
         value={props.edittedLesson.day === -1 ? "" : props.edittedLesson.day}
         >
-            <option value="-1">Select...</option>
             <option value="1">Monday</option>
             <option value="2">Tuesday</option>
             <option value="3">Wednesday</option>
@@ -50,6 +49,6 @@
     </div>
     <div class="Edit_inputgroup">
     <button onclick={()=>props.onSave()}>OK</button>
-    <button >Cancel</button>
+    <button onclick={()=>props.clearEdit()}>Cancel</button>
     </div>
 </div>
