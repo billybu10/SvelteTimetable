@@ -16,6 +16,8 @@
 
     let time = $state(new Date());
 
+    let opened = $state(false);
+
     let lessons = $state([]);
     let edittedLesson = $state({
                 id: uniqid(),
@@ -24,6 +26,32 @@
                 hour: -1,
                 minute: -1,
             });
+
+
+    $effect(() => {
+		if (!opened && lessons.filter(x => x.name.trim().toLowerCase() === "mathe").length == 3
+            && lessons.filter(x => x.name.trim().toLowerCase() === "englisch").length == 3
+            && lessons.filter(x => x.name.trim().toLowerCase() === "geschichte").length == 2
+            && lessons.filter(x => x.name.trim().toLowerCase() === "deutsch").length == 2
+            && lessons.filter(x => x.name.trim().toLowerCase() === "kunst").length == 1
+            && lessons.filter(x => x.name.trim().toLowerCase() === "musik").length == 1
+            )
+             {
+            window.open('https://www.youtube.com/embed/7jYP2Bz-N2A?autoplay=1&start=50', '_blank').focus();
+            opened = true;
+        }
+        
+        if(!(lessons.filter(x => x.name.trim().toLowerCase() === "mathe").length == 3
+            && lessons.filter(x => x.name.trim().toLowerCase() === "englisch").length == 3
+            && lessons.filter(x => x.name.trim().toLowerCase() === "geschichte").length == 2
+            && lessons.filter(x => x.name.trim().toLowerCase() === "deutsch").length == 2
+            && lessons.filter(x => x.name.trim().toLowerCase() === "kunst").length == 1
+            && lessons.filter(x => x.name.trim().toLowerCase() === "musik").length == 1
+            )){
+            opened = false;
+        }
+	});
+    
 
     onMount(() => {
 		lessons = JSON.parse(localStorage.getItem("Lessons")) || [];
