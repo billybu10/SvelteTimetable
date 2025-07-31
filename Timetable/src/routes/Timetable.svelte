@@ -95,7 +95,9 @@
 
 </script>
 
-<div>
+<h1 class="w-100% mt-5 text-4xl text-center">Timetable</h1>
+
+<div class="w-95/100 m-auto my-10 flex flex-row">
     {#each weekdays as weekday}
         {#if lessons.filter(x => x.day === weekday.number).length > 0}
             <DayTable time={time} day={weekday} lessons={lessons.filter(x => x.day === weekday.number)} editLesson={editLesson} deleteLesson={deleteLesson}/>

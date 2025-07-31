@@ -2,10 +2,11 @@
     let props = $props();
 </script>
 
-<div class="Edit">  
-    <div class="Edit_inputgroup">
-        <label for="name">Name</label>
+<div class="m-auto w-fit">  
+    <div class="flex flex-row m-auto mt-2 w-100%">
+        <label class="basis-2/5 grow" for="name">Name</label>
         <input 
+        class="basis-3/5 grow border-1 border-gray-200 shadow-xl rounded-lg"
         type="text"
         name="name"
         id="name"
@@ -13,9 +14,10 @@
         value={props.edittedLesson.name}
         />
     </div>
-    <div class="Edit_inputgroup">
-        <label for="dzien">Choose weekday</label>
+    <div class="flex flex-row m-auto mt-2 w-100%">
+        <label class="basis-1/2 grow mr-1" for="day">Weekday</label>
         <select 
+        class="basis-1/2 grow border-1 border-gray-200 shadow-xl rounded-lg"
         type="text"
         name="day"
         id="day"
@@ -31,24 +33,25 @@
             <option value="0">Sunday</option>
         </select>
     </div>
-    <div class="Edit_inputgroup">
-        <label for="czasG">Hour</label>
+    <div class="flex flex-row m-auto mt-2 w-100%">
+        <label class="basis-2/5 grow" for="hour">Hour</label>
         <input type="text"
+        class="basis-3/5 grow border-1 border-gray-200 shadow-xl rounded-lg"
         name="hour"
         id="hour"
         onchange={(e) => props.onInputChange({[e.target.name]: e.target.value})}
         value={props.edittedLesson.hour === -1 ? "" : props.edittedLesson.hour}
         />
         </div>
-        <div class="Edit_inputgroup">
-        <label for="czasM">Minute</label>
-        <input type="text" name="minute" id="minute"
+        <div class="flex flex-row m-auto mt-2 w-100%">
+        <label class="basis-2/5 grow" for="minute">Minute</label>
+        <input type="text" class="basis-3/5 grow border-1 border-gray-200 shadow-xl rounded-lg" name="minute" id="minute"
         onchange={(e) => props.onInputChange({[e.target.name]: e.target.value})}
         value={props.edittedLesson.minute === -1 ? "" : props.edittedLesson.minute}
         />
     </div>
-    <div class="Edit_inputgroup">
-    <button onclick={()=>props.onSave()}>OK</button>
-    <button onclick={()=>props.clearEdit()}>Cancel</button>
+    <div class="flex flex-row m-auto mt-2 w-100%">
+    <button class="basis-1/2 grow border-1 border-gray-200 shadow-xl rounded-lg" onclick={()=>props.onSave()}>OK</button>
+    <button class="basis-1/2 grow border-1 border-gray-200 shadow-xl rounded-lg" onclick={()=>props.clearEdit()}>Cancel</button>
     </div>
 </div>
